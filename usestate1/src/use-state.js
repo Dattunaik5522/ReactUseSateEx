@@ -36,7 +36,14 @@ const Usestateex = () => {
     });
   };
 
-  console.log(message);
+  const handleDelete = (id) => {
+    console.log(id);
+    let newTodos = list.filter((eachitem) => {
+      return eachitem.id != id;
+    });
+    setList(newTodos);
+  };
+
   return (
     <div>
       <form>
@@ -60,7 +67,7 @@ const Usestateex = () => {
           return (
             <li key={id}>
               <div>{text}</div> <button>edit</button>
-              <button>delete</button>
+              <button onClick={() => handleDelete(id)}>delete</button>
             </li>
           );
         })}
